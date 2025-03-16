@@ -51,7 +51,8 @@ int main()
     {
         printf("Добуток непарних чисел: %d\n", product_odd);
         printf("Середнє геометричне непарних чисел: %.2f\n", pow((double)product_odd, 1.0 / count_odd));
-    } else 
+    } 
+    else 
     {
         printf("Непарних чисел немає.\n");
     }
