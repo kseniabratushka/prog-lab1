@@ -25,20 +25,25 @@ int main()
         if (fabs(mas[i]) < fabs(mas[min_index])) min_index = i;
     }
     
-    if (max_index > min_index) 
+    int start = (max_index < min_index) ? max_index : min_index;
+    int end = (max_index < min_index) ? max_index : min_index;
+    if (abs(end - start) > 1) 
     {
-        for (int i = min_index + 1; i < max_index; i++) product_between *= mas[i];
-    } else if (min_index > max_index) 
+        for (int i = start + 1; i < end; i += 1) 
+        {
+            product_between *= mas[i];
+        }
+    } 
+    else 
     {
-        for (int i = max_index + 1; i < min_index; i++) product_between *= mas[i];
-    } else 
-    {
-        product_between = 0;
+        product_between = 0.0;
     }
     
     printf("Сума додатних: %.2lf\n", sum);
-    if (max_index != min_index) printf("Добуток між max і min за модулем: %.2lf\n", product_between);
-    else printf("Добуток не обчислюється.\n");
+    if (abs(end - start) > 1) 
+        printf("Добуток між max і min за модулем: %.2lf\n", product_between);
+    else 
+        printf("Добуток дорівнює 0.\n");
     
     return 0;
 }
